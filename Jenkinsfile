@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'pwd'
-                sh 'whoami'
+                sh 'ls'
                 sh 'npm install'
             }
         }
