@@ -2,9 +2,15 @@ const http = require('http');
 const fs = require('fs');
 const IO = require('socket.io');
 const PORT = process.env.PORT || 2019;
+const path = require('path');
 
 const server = http.createServer(function (req, res) {
-		const filename = "." + req.url;
+		if (req.url === '/api/users' && req.method === 'GET') {
+				res.writeHead(200, {'Content-Type': 'application/json'});
+				res.end('API USERS WORK WELL!');
+		}
+
+		const filename = path.join(__dirname, req.url);
 		fs.readFile(filename, (err, data) => {
 				if (err) {
 						return res.end('Error' + err);
