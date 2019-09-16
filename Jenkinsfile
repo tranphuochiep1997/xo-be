@@ -8,6 +8,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'pwd'
+                sh 'whoami'
                 sh 'npm install'
             }
         }
